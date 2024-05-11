@@ -41,8 +41,3 @@ def view_image(image):
     if image not in image_files:
         return "Image not found", 404
     return render_template("view_image.html", image=image, coordinates=coordinates)
-
-
-# Remova a condição if __name__ == "__main__" para permitir o deploy no Vercel
-# if __name__ == "__main__":
-#     app.run(debug=True)
