@@ -5,7 +5,7 @@ app = Flask(__name__)
 # Lista de nomes de arquivos de imagem
 image_files = ["Devias.png", "Lorencia.png", "LostTower1.png", "Noria.png", "Lost tower 3.png", "Aida.png",
                "DeepDungeon1.png", "DeepDungeon2.png", "DeepDungeon3.png", "DeepDungeon4.png", "DeepDungeon5.png",
-               "Ferea.png", "TormentaIsland.png", "SwampOfCalmness.png", "UrukMontain.png", "Acheron.png","Nars.png"]
+               "Ferea.png", "TormentaIsland.png", "SwampOfCalmness.png", "UrukMontain.png", "Acheron.png", "Nars.png"]
 
 # Dicionário de coordenadas para cada imagem
 image_coordinates = {
@@ -39,5 +39,5 @@ def view_image(image):
     return render_template("view_image.html", image=image, coordinates=coordinates)
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
