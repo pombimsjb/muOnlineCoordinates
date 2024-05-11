@@ -1,15 +1,10 @@
 {
   "version": 2,
-  "builds": [
-      {
-          "src": "*.py",
-          "use": "@vercel/python"
-      }
-  ],
-  "routes": [
-      {
-          "src": "(.*)",
-          "dest": "app.py"
-      }
-  ]
+  "functions": {
+    "vc__handler__python": {
+      "runtime": "python3.8",
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  }
 }
