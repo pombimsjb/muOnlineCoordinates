@@ -37,3 +37,7 @@ def index():
 def view_image(image):
     coordinates = image_coordinates.get(image, {"x_min": 0, "x_max": 250, "y_min": 0, "y_max": 250})
     return render_template("view_image.html", image=image, coordinates=coordinates)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
