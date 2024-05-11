@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Image</title>
+    <style>
+        #image-container {
+            position: relative;
+            display: inline-block;
+        }
+        #image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .marker {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer; /* Cursor de mão para indicar que é clicável */
+        }
+        .marker-text {
+            position: absolute;
+            top: -20px;
+            left: 12px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: none;
+        }
+        .marker:hover .marker-text {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image View: {{ image }}</h1>
+    <div id="image-container">
+        <img src="/static/imgs/{{ image }}" alt="Selected Image" id="selected-image">
+        <div id="selected-coordinates"></div>
+    </div>
+    <div id="coordinates"></div>
+
+    <form id="add-coordinate-form">
+        <label for="x-coordinate">X:</label>
+        <input type="number" id="x-coordinate" name="x-coordinate" min="0" max="250">
+        <label for="y-coordinate">Y:</label>
+        <input type="number" id="y-coordinate" name="y-coordinate" min="0" max="250">
+        <button type="submit">Add Marker</button>
+    </form>
+
+    <script>
+        var image = document.getElementById("selected-image");
+        var container = document.getElementById("image-container");
+        var coordinatesDiv = document.getElementById("coordinates");
+        var addCoordinateForm = document.getElementById("add-coordinate-form");
+        var markers = [];
+        var imageWidth, imageHeight;
+
+        // Função para calcular as coordenadas
+        function calculateCoordinates(event) {
+            var rect = image.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+
+            var xScaled = Math.round((x / imageWidth) * 250);
+            var yScaled = Math.round((y / imageHeight) * 250);
+
+            coordinatesDiv.textContent = "Coordinates: (" + yScaled + ", " + xScaled + ")";
+        }
+
+        // Evento de carregamento da imagem
+        image.onload = function() {
+            imageWidth = image.width;
+            imageHeight = image.height;
+            loadMarkersFromStorage(); // Carregar marcadores salvos
+        };
+
+        container.addEventListener("mousemove", calculateCoordinates);
+
+        container.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            var rect = image.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+
+            var xScaled = Math.round((x / imageWidth) * 250);
+            var yScaled = Math.round((y / imageHeight) * 250);
+
+            if (xScaled >= 0 && xScaled <= 250 && yScaled >= 0 && yScaled <= 250) {
+                addMarker(xScaled, yScaled);
+            } else {
+                alert("Coordinates out of bounds!");
+            }
+        });
+
+        // Função para adicionar marcador
+        function addMarker(x, y) {
+            var marker = document.createElement("div");
+            marker.className = "marker";
+            marker.style.left = (x / 250) * imageWidth + "px";
+            marker.style.top = (y / 250) * imageHeight + "px";
+
+            var markerText = document.createElement("div");
+            markerText.className = "marker-text";
+            markerText.textContent = "(" + y + ", " + x + ")";
+            marker.appendChild(markerText);
+
+            container.appendChild(marker);
+            markers.push(marker);
+
+            marker.addEventListener("click", function() {
+                container.removeChild(marker);
+                markers.splice(markers.indexOf(marker), 1);
+                saveMarkersToStorage(); // Salvar marcadores ao remover
+            });
+        }
+
+        // Evento de envio do formulário para adicionar marcador
+        addCoordinateForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var x = parseInt(document.getElementById("x-coordinate").value);
+            var y = parseInt(document.getElementById("y-coordinate").value);
+
+            if (!isNaN(x) && !isNaN(y) && x >= 0 && x <= 250 && y >= 0 && y <= 250) {
+                addMarker(x, y);
+                saveMarkersToStorage(); // Salvar marcadores ao adicionar
+            } else {
+                alert("Invalid coordinates! Please enter values between 0 and 250.");
+            }
+        });
+
+        // Função para salvar marcadores no armazenamento local
+        function saveMarkersToStorage() {
+            var markersData = {
+                markers: markers.map(function(marker) {
+                    return {
+                        left: marker.style.left,
+                        top: marker.style.top
+                    };
+                })
+            };
+            localStorage.setItem("imageMarkers", JSON.stringify(markersData));
+        }
+
+        // Função para carregar marcadores do armazenamento local
+        function loadMarkersFromStorage() {
+            var markersData = JSON.parse(localStorage.getItem("imageMarkers"));
+            if (markersData) {
+                markersData.markers.forEach(function(markerData) {
+                    var marker = document.createElement("div");
+                    marker.className = "marker";
+                    marker.style.left = markerData.left;
+                    marker.style.top = markerData.top;
+
+                    var markerText = document.createElement("div");
+                    markerText.className = "marker-text";
+                    var x = parseInt(marker.style.top) / imageHeight * 250;
+                    var y = parseInt(marker.style.left) / imageWidth * 250;
+                    markerText.textContent = "(" + Math.round(x) + ", " + Math.round(y) + ")";
+                    marker.appendChild(markerText);
+
+                    container.appendChild(marker);
+                    markers.push(marker);
+
+                    marker.addEventListener("click", function() {
+                        container.removeChild(marker);
+                        markers.splice(markers.indexOf(marker), 1);
+                        saveMarkersToStorage(); // Salvar marcadores ao remover
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+</html>
