@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b2ef371-21be-47b1-82d9-63c46bdafc89" name="Changes" comment="Deploy Projeto" />
+    <list default="true" id="9b2ef371-21be-47b1-82d9-63c46bdafc89" name="Changes" comment="Deploy Projeto">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +127,7 @@
       <workItem from="1715114188760" duration="3158000" />
       <workItem from="1715120784880" duration="602000" />
       <workItem from="1715300837839" duration="3523000" />
-      <workItem from="1715361898354" duration="13636000" />
+      <workItem from="1715361898354" duration="13755000" />
     </task>
     <task id="LOCAL-00001" summary="Deploy Projeto">
       <option name="closed" value="true" />
@@ -231,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715392151548</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Deploy Projeto">
+      <option name="closed" value="true" />
+      <created>1715392197872</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715392197872</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
