@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b2ef371-21be-47b1-82d9-63c46bdafc89" name="Changes" comment="Deploy Projeto" />
+    <list default="true" id="9b2ef371-21be-47b1-82d9-63c46bdafc89" name="Changes" comment="Deploy Projeto">
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +127,7 @@
       <workItem from="1715114188760" duration="3158000" />
       <workItem from="1715120784880" duration="602000" />
       <workItem from="1715300837839" duration="3523000" />
-      <workItem from="1715361898354" duration="12281000" />
+      <workItem from="1715361898354" duration="12362000" />
     </task>
     <task id="LOCAL-00001" summary="Deploy Projeto">
       <option name="closed" value="true" />
@@ -175,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715390778964</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Deploy Projeto">
+      <option name="closed" value="true" />
+      <created>1715390852142</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715390852142</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

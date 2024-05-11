@@ -1,18 +1,12 @@
 {
   "functions": {
-    "api/index.py": {
-      "runtime": "python3.8",
-      "memory": 512
+    "api/index": {
+      "runtime": "@vercel/python"
     }
   },
   "routes": [
-    {
-      "src": "/api/index",
-      "dest": "/api/index.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
+    { "handle": "filesystem" },
+    { "src": "/api/index", "dest": "/api/index.py" },
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
