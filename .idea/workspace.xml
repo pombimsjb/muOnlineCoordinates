@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b2ef371-21be-47b1-82d9-63c46bdafc89" name="Changes" comment="Deploy Projeto">
-      <change afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +127,7 @@
       <workItem from="1715114188760" duration="3158000" />
       <workItem from="1715120784880" duration="602000" />
       <workItem from="1715300837839" duration="3523000" />
-      <workItem from="1715361898354" duration="12008000" />
+      <workItem from="1715361898354" duration="12127000" />
     </task>
     <task id="LOCAL-00001" summary="Deploy Projeto">
       <option name="closed" value="true" />
@@ -154,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715390012741</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Deploy Projeto">
+      <option name="closed" value="true" />
+      <created>1715390561583</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715390561583</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +172,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Deploy Projeto" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flaskMuOnline$flaskMuOnline.coverage" NAME="flaskMuOnline Coverage Results" MODIFIED="1715390017372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flaskMuOnline$flaskMuOnline.coverage" NAME="flaskMuOnline Coverage Results" MODIFIED="1715390553501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
