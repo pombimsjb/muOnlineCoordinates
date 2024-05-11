@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 # Lista de nomes de arquivos de imagem
-image_files = ["Devias.png", "Lorencia.png", "LostTower1.png", "Noria.png", "Lost tower 3.png", "Aida.png",
-               "DeepDungeon1.png", "DeepDungeon2.png", "DeepDungeon3.png", "DeepDungeon4.png", "DeepDungeon5.png",
-               "Ferea.png", "TormentaIsland.png", "SwampOfCalmness.png", "UrukMontain.png", "Acheron.png","Nars.png"]
+image_files = [
+    "Devias.png", "Lorencia.png", "LostTower1.png", "Noria.png", "Lost tower 3.png", "Aida.png",
+    "DeepDungeon1.png", "DeepDungeon2.png", "DeepDungeon3.png", "DeepDungeon4.png", "DeepDungeon5.png",
+    "Ferea.png", "TormentaIsland.png", "SwampOfCalmness.png", "UrukMontain.png", "Acheron.png", "Nars.png"
+]
 
 # Dicionário de coordenadas para cada imagem
 image_coordinates = {
@@ -36,8 +38,11 @@ def index():
 @app.route("/view_image/<image>", methods=["GET"])
 def view_image(image):
     coordinates = image_coordinates.get(image, {"x_min": 0, "x_max": 250, "y_min": 0, "y_max": 250})
+    if image not in image_files:
+        return "Image not found", 404
     return render_template("view_image.html", image=image, coordinates=coordinates)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# Remova a condição if __name__ == "__main__" para permitir o deploy no Vercel
+# if __name__ == "__main__":
+#     app.run(debug=True)
