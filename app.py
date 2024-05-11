@@ -39,5 +39,5 @@ def view_image(image):
     return render_template("view_image.html", image=image, coordinates=coordinates)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
